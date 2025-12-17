@@ -1,13 +1,14 @@
 const express = require("express");
+const dbConfig = require("./dbConfig");
+const _ = require("./routes");
 const app = express();
 
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.send(
-    "Oh what a beautiful morning, oh what a beautiful day, I've got this beautiful feeling, everything'g going my way 🌅"
-  );
-});
+// Calling Database
+dbConfig();
+// Calling Router
+app.use(_);
 
 app.listen("8000", function () {
   console.log("Server is running 🏃‍♂️");
